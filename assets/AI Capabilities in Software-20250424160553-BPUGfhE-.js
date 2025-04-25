@@ -1,4 +1,4 @@
-# AI Capabilities in Software
+const e=`# AI Capabilities in Software
 
 In the current technological landscape, most modern software incorporates AI capabilities to enhance functionality, improve user experience, and streamline workflows. Here are some prime examples of software with embedded AI features.
 
@@ -36,4 +36,4 @@ In the current technological landscape, most modern software incorporates AI cap
 
 ![](https://t9015511399.p.clickup-attachments.com/t9015511399/5d20fb0d-cfb3-4097-ba5d-537719e61741/image.png)
 
-**Copilot for Microsoft 365** is an AI feature embedded within Microsoft 365 applications like Word, Excel, PowerPoint, and Teams. It assists with document creation by helping draft, format, and edit documents. In Excel, Copilot analyzes data, creates complex formulas, generates insights, and visualizes data through charts and graphs. For PowerPoint, it suggests improvements for slides, including layout, content, and design elements, enhancing presentation quality and effectiveness.
+**Copilot for Microsoft 365** is an AI feature embedded within Microsoft 365 applications like Word, Excel, PowerPoint, and Teams. It assists with document creation by helping draft, format, and edit documents. In Excel, Copilot analyzes data, creates complex formulas, generates insights, and visualizes data through charts and graphs. For PowerPoint, it suggests improvements for slides, including layout, content, and design elements, enhancing presentation quality and effectiveness.`;export{e as default};
