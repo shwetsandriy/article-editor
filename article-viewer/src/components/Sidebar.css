@@ -1,0 +1,39 @@
+.sidebar-group-toggle {
+  background: none;
+  border: none;
+  font-weight: bold;
+  color:#25272f;
+  cursor: pointer;
+  padding: 0.3rem 0;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.sidebar-group-toggle:focus {
+  outline: none;
+}
+
+.sidebar-subgroup {
+  padding-left: 1rem;
+}
+
+.sidebar-item {
+  display: block;
+  background: none;
+  border: none;
+  color: #25272f;
+  padding: 0.25rem 0;
+  cursor: pointer;
+  font-size: 0.95rem;
+  text-align: left;
+  width: 100%;
+}
+
+.sidebar-item:hover {
+  text-decoration: underline;
+}
+.sidebar-item:focus {
+  outline: none;
+}
