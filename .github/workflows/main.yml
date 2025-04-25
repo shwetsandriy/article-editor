@@ -22,7 +22,7 @@ jobs:
       - name: Check if dist exists
         run: |
           echo "Checking dist contents:"
-          ls -la /dist
+          ls -la dist
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
