@@ -17,7 +17,7 @@ export function getArticlesTree() {
 
     if (!current.files) current.files = [];
     current.files.push({
-      name: fileName,
+      name: fileName, 
       path: fullPath
     });
   });
