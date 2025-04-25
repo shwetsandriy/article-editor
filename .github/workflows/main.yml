@@ -9,25 +9,28 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
 
       - name: Install dependencies
         run: npm ci
-        working-directory: article-viewer
 
       - name: Build project
         run: npm run build
-        working-directory: article-viewer
 
       - name: Check if dist exists
         run: |
-          echo "Checking dist contents:"
-          ls -la article-viewer/dist
+          echo "📁 dist contents:"
+          ls -la dist
 
       - name: Deploy to GitHub Pages
+        id: deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./article-viewer/dist
+          publish_dir: ./dist
