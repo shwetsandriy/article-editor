@@ -36,9 +36,9 @@ const FolderGroup = ({ label, children }) => {
 function renderTree(node, onSelect) {
   return Object.entries(node).map(([key, value]) => {
     if (key === 'files') {
-      return value.map((file) => (
+      return value.map((file, index) => (
         <button
-          key={file.path}
+          key={`${file.name}-${index}`}
           className="sidebar-item"
           onClick={() => onSelect(file.path)}
         >

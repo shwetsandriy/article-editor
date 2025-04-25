@@ -10,13 +10,13 @@ function App() {
   const articleTree = getArticlesTree();
 
   function findFirstFile(tree) {
-    if (tree.files?.[0]) return tree.files[0].path;
-    for (const key in tree) {
-      const res = findFirstFile(tree[key]);
-      if (res) return res;
+      if (tree.files?.[0]) return tree.files[0].path;
+      for (const key in tree) {
+        const res = findFirstFile(tree[key]);
+        if (res) return res;
+      }
+      return null;
     }
-    return null;
-  }
   const [articlePath, setArticlePath] = useState(findFirstFile(articleTree));
   const [sidebarOpen, setSidebarOpen] = useState(true); 
   return (

@@ -7,12 +7,19 @@ export default function ArticleViewer({ filePath }) {
 
     useEffect(() => {
       if (!filePath) return;
-  
-      import(filePath).then((module) => {
-        fetch(module.default)
-          .then((res) => res.text())
-          .then((text) => setContent(text));
-      });
+      
+      // Import the file content using Vite's import.meta.glob
+      const files = import.meta.glob('../articles/**/*.md', { as: 'raw' });
+      const fullPath = `../articles/${filePath}`;
+      
+      if (files[fullPath]) {
+        files[fullPath]().then((text) => {
+          setContent(text);
+        }).catch(error => {
+          console.error('Error loading file:', error);
+          setContent('Error loading content');
+        });
+      }
     }, [filePath]);
 
   return (

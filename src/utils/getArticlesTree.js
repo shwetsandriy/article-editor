@@ -1,6 +1,5 @@
 export function getArticlesTree() {
-  const files = import.meta.glob('../articles/**/*.md');
-
+  const files = import.meta.glob('../articles/**/*.md', { as: 'raw' });
   const tree = {};
 
   Object.keys(files).forEach((fullPath) => {
@@ -9,7 +8,6 @@ export function getArticlesTree() {
     const fileName = parts.pop().replace('.md', '');
 
     let current = tree;
-
     for (const folder of parts) {
       if (!current[folder]) current[folder] = {};
       current = current[folder];
@@ -17,8 +15,8 @@ export function getArticlesTree() {
 
     if (!current.files) current.files = [];
     current.files.push({
-      name: fileName, 
-      path: fullPath
+      name: fileName,
+      path: relativePath
     });
   });
 
