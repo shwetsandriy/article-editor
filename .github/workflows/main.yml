@@ -21,6 +21,11 @@ jobs:
         run: npm run build
         working-directory: article-viewer
 
+      - name: Check if dist exists
+        run: |
+          echo "Checking dist contents:"
+          ls -la article-viewer/dist
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
