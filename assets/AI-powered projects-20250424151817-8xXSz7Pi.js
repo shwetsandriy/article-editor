@@ -56,8 +56,9 @@ IT Pro must write custom complex PowerShell scripts to manage companies' infrast
 
 [https://doc.clickup.com/9015511399/p/h/8cnvjb7-2715/184dcaab833df1a](https://doc.clickup.com/9015511399/p/h/8cnvjb7-2715/184dcaab833df1a)
 
-Azure OpenAI-based RAG solution helps employees to access support data quickly.
+Azure OpenAI-based RAG solution helps employees 
 
   
 
-**More cases**: [here](https://doc.clickup.com/9015511399/p/h/8cnvjb7-595/d9de46660d7dee4)`;export{e as default};
+**More cases**: [here](https://doc.clickup.com/9015511399/p/h/8cnvjb7-595/d9de46660d7dee4)
+`;export{e as default};
