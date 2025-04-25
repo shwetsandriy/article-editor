@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Sidebar.css';
 
-export default function Sidebar({ tree, onSelect, sidebarOpen, setSidebarOpen }) {
+export default function Sidebar({ tree, onSelect }) {
   return (
     <div className="sidebar-wrapper">
       <div className="sidebar">

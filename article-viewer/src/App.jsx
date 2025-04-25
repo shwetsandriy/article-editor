@@ -51,7 +51,7 @@ function App() {
       </div>
     </header>
       <div className={`layout ${sidebarOpen ? 'sidebar-open' : 'sidebar-closed'}`}>
-        <Sidebar tree={articleTree} onSelect={setArticlePath} sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+        <Sidebar tree={articleTree} onSelect={setArticlePath}/>
         <div className="page-wrapper">
           <ArticleViewer filePath={articlePath} />
         </div>
