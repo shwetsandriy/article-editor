@@ -1,7 +1,7 @@
 import ArticleViewer from './components/ArticleViewer';
 import Sidebar from './components/Sidebar';
 import { getArticlesTree } from './utils/getArticlesTree';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './components/Sidebar.css';
 
 
@@ -18,7 +18,21 @@ function App() {
       return null;
     }
   const [articlePath, setArticlePath] = useState(findFirstFile(articleTree));
-  const [sidebarOpen, setSidebarOpen] = useState(true); 
+  const [sidebarOpen, setSidebarOpen] = useState(true);
+
+  useEffect(() => {
+      const handleResize = () => {
+        if (window.innerWidth <= 768) {
+          setSidebarOpen(false);
+        } else {
+          setSidebarOpen(true);
+        }
+      };
+  
+      handleResize();
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+    }, []);
   return (
     <>
       <header className="site-header">
@@ -50,8 +64,26 @@ function App() {
                     </svg>
       </div>
     </header>
+      {!sidebarOpen && (
+            <button 
+            className="sidebar-toggle-button" 
+            onClick={() => setSidebarOpen(true)}
+            >
+            &#9776;
+            </button>
+      )}
+
+      {sidebarOpen && window.innerWidth <= 768 && (
+      <div className="overlay" onClick={() => setSidebarOpen(false)} />
+      )}
+      
       <div className={`layout ${sidebarOpen ? 'sidebar-open' : 'sidebar-closed'}`}>
-        <Sidebar tree={articleTree} onSelect={setArticlePath}/>
+        <Sidebar tree={articleTree} onSelect={(path) => {
+            setArticlePath(path);
+            if (window.innerWidth <= 768) {
+            setSidebarOpen(false);
+            }
+            }}/>
         <div className="page-wrapper">
           <ArticleViewer filePath={articlePath} />
         </div>

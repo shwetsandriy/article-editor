@@ -8,7 +8,6 @@ export default function ArticleViewer({ filePath }) {
     useEffect(() => {
       if (!filePath) return;
       
-      // Import the file content using Vite's import.meta.glob
       const files = import.meta.glob('../articles/**/*.md', { as: 'raw' });
       const fullPath = `../articles/${filePath}`;
       

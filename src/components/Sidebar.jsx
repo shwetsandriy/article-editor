@@ -4,6 +4,12 @@ import './Sidebar.css';
 export default function Sidebar({ tree, onSelect }) {
   return (
     <div className="sidebar-wrapper">
+      <button 
+        className="sidebar-close-button" 
+        onClick={() => onSelect(null)}
+      >
+        ✕
+      </button>
       <div className="sidebar">
         {renderTree(tree, onSelect)}
       </div>
@@ -48,6 +54,7 @@ function renderTree(node, onSelect) {
     }
 
     return (
+      
       <FolderGroup key={key} label={key}>
         {renderTree(value, onSelect)}
       </FolderGroup>
