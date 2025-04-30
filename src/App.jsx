@@ -37,6 +37,22 @@ function App() {
     <>
       <header className="site-header">
       <div className="header-content">
+      {!sidebarOpen && (
+            <button 
+            className="sidebar-toggle-button" 
+            onClick={() => setSidebarOpen(true)}
+            >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 18H10" stroke="#000000" stroke-width="2" stroke-linecap="round"/>
+              <path d="M4 12L16 12" stroke="#000000" stroke-width="2" stroke-linecap="round"/>
+              <path d="M4 6L20 6" stroke="#000000" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            </button>
+      )}
+
+      {sidebarOpen && window.innerWidth <= 768 && (
+      <div className="overlay" onClick={() => setSidebarOpen(false)} />
+      )}
       <svg xmlns="http://www.w3.org/2000/svg" width="107" height="20"
                          viewBox="0 0 107 20" fill="none">
                         <path d="M39.6146 0.0487242C38.5964 -0.044712 37.5717 0.0297204 36.5503 0.00438177C36.5503 2.73462 36.5503 5.46485 36.5503 8.19509C35.9069 7.14354 34.8501 6.33745 33.6019 6.16325C32.5579 6.04289 31.4609 6.04606 30.4636 6.41663C28.9065 6.95825 27.7452 8.28061 27.1404 9.75975C26.497 11.3149 26.4374 13.0363 26.5838 14.6913C26.7672 16.4127 27.5489 18.1468 29.0175 19.1635C30.277 20.0536 31.9386 20.1407 33.4153 19.8524C34.7729 19.5563 35.8619 18.5855 36.5552 17.4342C36.5439 18.1848 36.5552 19.2493 36.5552 20C37.5766 19.9857 38.5996 20.0143 39.621 20C39.5974 13.4595 39.5953 6.59031 39.6146 0.0487242ZM36.301 15.2915C35.894 16.3636 34.9691 17.3059 33.7933 17.5086C32.9456 17.6258 32.0239 17.5656 31.3017 17.0699C30.2577 16.3826 29.7623 15.1157 29.669 13.9264C29.5837 12.6246 29.6883 11.2341 30.3912 10.0987C30.6194 9.71206 30.9282 9.37741 31.2972 9.11674C31.6662 8.85607 32.0871 8.67527 32.5322 8.58625C33.3365 8.47381 34.2147 8.50074 34.9321 8.92832C35.4613 9.24255 35.8943 9.69174 36.1854 10.2284C36.4765 10.765 36.6148 11.3692 36.5857 11.9769C36.5471 13.0823 36.7224 14.2336 36.301 15.2915Z"
@@ -64,18 +80,7 @@ function App() {
                     </svg>
       </div>
     </header>
-      {!sidebarOpen && (
-            <button 
-            className="sidebar-toggle-button" 
-            onClick={() => setSidebarOpen(true)}
-            >
-            &#9776;
-            </button>
-      )}
-
-      {sidebarOpen && window.innerWidth <= 768 && (
-      <div className="overlay" onClick={() => setSidebarOpen(false)} />
-      )}
+      
       
       <div className={`layout ${sidebarOpen ? 'sidebar-open' : 'sidebar-closed'}`}>
         <Sidebar tree={articleTree} onSelect={(path) => {
