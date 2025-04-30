@@ -90,7 +90,7 @@ function App() {
             }
             }}/>
         <div className="page-wrapper">
-          <ArticleViewer filePath={articlePath} />
+          <ArticleViewer filePath={articlePath} onNavigate={setArticlePath} />
         </div>
       </div>
     </>

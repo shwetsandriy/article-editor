@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
-export default function ArticleViewer({ filePath }) {
+export default function ArticleViewer({ filePath, onNavigate }) {
     const [content, setContent] = useState('');
 
     useEffect(() => {
@@ -21,9 +21,27 @@ export default function ArticleViewer({ filePath }) {
       }
     }, [filePath]);
 
+    const components = {
+      a({ href, children }) {
+        if (href.endsWith('.md')) {
+          return (
+            <button
+              className="md-link-button"
+              onClick={() => onNavigate?.(href)}
+              style={{ color: 'blue', textDecoration: 'underline', background: 'none', border: 'none', cursor: 'pointer' }}
+            >
+              {children}
+            </button>
+          );
+        }
+        return <a href={href} target="_blank" rel="noopener noreferrer">{children}</a>;
+      }
+    };
+  
+
   return (
     <div className="article-container">
-      <ReactMarkdown remarkPlugins={[remarkGfm]}>
+      <ReactMarkdown remarkPlugins={[remarkGfm]} components={components}>
         {content}
       </ReactMarkdown>
     </div>
