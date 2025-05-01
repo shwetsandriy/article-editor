@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import path from 'path-browserify';
@@ -23,6 +23,14 @@ export default function ArticleViewer({ filePath, onNavigate }) {
         });
       }
     }, [filePath]);
+
+    const containerRef = useRef();
+
+    useEffect(() => {
+      if (content && containerRef.current) {
+        containerRef.current.scrollIntoView({ behavior: 'instant' });
+      }
+    }, [content]);
 
     const components = {
       a({ href, children }) {
@@ -50,7 +58,7 @@ export default function ArticleViewer({ filePath, onNavigate }) {
   
 
   return (
-    <div className="article-container">
+    <div ref={containerRef} className="article-container">
       <ReactMarkdown remarkPlugins={[remarkGfm]} components={components}>
         {content}
       </ReactMarkdown>
