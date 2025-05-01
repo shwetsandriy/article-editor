@@ -25,13 +25,11 @@ export default function ArticleViewer({ filePath, onNavigate }) {
       a({ href, children }) {
         if (href.endsWith('.md')) {
           return (
-            <button
-              className="md-link-button"
+            <a
               onClick={() => onNavigate?.(href)}
-              style={{ color: 'blue', textDecoration: 'underline', background: 'none', border: 'none', cursor: 'pointer' }}
             >
               {children}
-            </button>
+            </a>
           );
         }
         return <a href={href} target="_blank" rel="noopener noreferrer">{children}</a>;

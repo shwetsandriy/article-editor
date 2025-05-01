@@ -9,6 +9,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
+    "copy-md": "node copy-md-files.js",
+    "prebuild": "npm run copy-md",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {

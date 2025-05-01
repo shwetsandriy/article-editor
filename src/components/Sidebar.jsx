@@ -48,7 +48,7 @@ function renderTree(node, onSelect) {
           className="sidebar-item"
           onClick={() => onSelect(file.path)}
         >
-          {file.name}
+          {file.displayName || file.name}
         </button>
       ));
     }
