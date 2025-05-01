@@ -244,6 +244,9 @@ button:focus-visible {
   .article-container{
     padding: 1rem;
   }
+  .header-content{
+    padding: 0 1rem;;
+  }
 }
 
 .overlay {

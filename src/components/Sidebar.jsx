@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import './Sidebar.css';
 
-export default function Sidebar({ tree, onSelect }) {
+export default function Sidebar({ tree, onSelect, setSidebarOpen }) {
   return (
     <div className="sidebar-wrapper">
       <button 
         className="sidebar-close-button" 
-        onClick={() => onSelect(null)}
+        onClick={() => setSidebarOpen(false)}
       >
         ✕
       </button>

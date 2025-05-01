@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import path from 'path-browserify';
 
 export default function ArticleViewer({ filePath, onNavigate }) {
     const [content, setContent] = useState('');
@@ -24,9 +25,16 @@ export default function ArticleViewer({ filePath, onNavigate }) {
     const components = {
       a({ href, children }) {
         if (href.endsWith('.md')) {
+          const baseDir = filePath.substring(0, filePath.lastIndexOf('/') + 1);
+          const resolvedPath = path.normalize(baseDir + href);
+    
           return (
             <a
-              onClick={() => onNavigate?.(href)}
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate?.(resolvedPath);
+              }}
             >
               {children}
             </a>
