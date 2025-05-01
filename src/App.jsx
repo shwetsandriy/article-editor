@@ -3,7 +3,7 @@ import Sidebar from './components/Sidebar';
 import { getArticlesTree } from './utils/getArticlesTree';
 import { useState, useEffect } from 'react';
 import './components/Sidebar.css';
-import { BrowserRouter as Router, Routes, Route, useParams, useNavigate, Navigate } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, useParams, useNavigate, Navigate } from 'react-router-dom';
 
 function ViewerWrapper() {
   const { filePath = '' } = useParams();
@@ -125,7 +125,7 @@ function App() {
   }, []);
 
   return (
-    <Router basename="/article-editor">
+    <Router>
       <Routes>
         <Route
           path="/"

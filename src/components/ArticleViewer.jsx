@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import path from 'path-browserify';
+import { useNavigate } from 'react-router-dom';
 
 export default function ArticleViewer({ filePath, onNavigate }) {
     const [content, setContent] = useState('');
+    const navigate = useNavigate();
 
     useEffect(() => {
       if (!filePath) return;
@@ -26,20 +28,22 @@ export default function ArticleViewer({ filePath, onNavigate }) {
       a({ href, children }) {
         if (href.endsWith('.md')) {
           const baseDir = filePath.substring(0, filePath.lastIndexOf('/') + 1);
-          const resolvedPath = path.normalize(baseDir + href);
-    
+          const resolvedPath = path.posix.normalize(`${baseDir}${href}`);
+          const relativePath = resolvedPath.replace(/^(\.\/)?/, '');
+  
           return (
             <a
               href="#"
               onClick={(e) => {
                 e.preventDefault();
-                onNavigate?.(resolvedPath);
+                navigate(`/${encodeURIComponent(relativePath)}`);
               }}
             >
               {children}
             </a>
           );
         }
+  
         return <a href={href} target="_blank" rel="noopener noreferrer">{children}</a>;
       }
     };
