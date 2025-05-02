@@ -20,7 +20,7 @@ Copilot helps users to get final validation scripts: bot collects the required i
   
 
 
-![](https://t9015511399.p.clickup-attachments.com/t9015511399/eadd0a34-be5f-4009-9cc5-759921d1c15a/image.png)
+![](https://devrain.blob.core.windows.net/cases/powershell_copilot_eadd0a34.png)
 
   
 

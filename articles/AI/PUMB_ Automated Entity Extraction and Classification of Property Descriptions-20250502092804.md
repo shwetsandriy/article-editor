@@ -40,10 +40,10 @@ This AI-driven approach reduces manual processing time, minimizes human error, a
 
 Example descriptions:
 
-![](https://t9015511399.p.clickup-attachments.com/t9015511399/1541b707-6d20-4def-a353-6fa82bb3473e/image.png)
+![](https://devrain.blob.core.windows.net/cases/case_image_1541b707.png)
 
   
 
 Example output:
 
-![](https://t9015511399.p.clickup-attachments.com/t9015511399/ffa6653c-66f3-4545-abf2-3f3d14ef80f1/image.png)
+![](https://devrain.blob.core.windows.net/cases/case_image_ffa6653c.png)

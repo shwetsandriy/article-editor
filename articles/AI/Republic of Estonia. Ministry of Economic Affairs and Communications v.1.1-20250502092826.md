@@ -2,7 +2,7 @@
 
 * * *
 
-![](https://t9015511399.p.clickup-attachments.com/t9015511399/c3e63dbb-17a8-4481-acb8-fa7d679f10f4/image.png)
+![](https://devrain.blob.core.windows.net/cases/case_image_c3e63dbb.png)
 
 * * *
 
@@ -38,7 +38,7 @@ The solution supports both Estonian and English languages for the user interface
 
 The architecture of MemoAI leverages Azure OpenAI Service, Azure App Service, Azure SQL Database, and other Azure components to ensure robust performance and scalability.
 
-![](https://t9015511399.p.clickup-attachments.com/t9015511399/0f58fadc-250b-4387-be9f-028885b7935d/image.png)
+![](https://devrain.blob.core.windows.net/cases/case_image_0f58fadc.png)
 
   
 

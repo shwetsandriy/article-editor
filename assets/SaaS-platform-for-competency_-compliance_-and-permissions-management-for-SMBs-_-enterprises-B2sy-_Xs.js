@@ -78,6 +78,6 @@ Platform components:
 
   
 
-![](https://t9015511399.p.clickup-attachments.com/t9015511399/826c1d3d-ebd7-412e-bf7c-79e9d1097cf5/image.png)
+![](https://devrain.blob.core.windows.net/cases/case_image_826c1d3d.png)
 
 ###`;export{n as default};

@@ -16,7 +16,7 @@ Users can quickly access information from the company knowledge base (KB) and re
   
 
 
-![](https://t9015511399.p.clickup-attachments.com/t9015511399/ff12fd06-ce23-4599-9a33-c8af415a89a7/image.png)
+![](https://devrain.blob.core.windows.net/cases/case_image_ff12fd06.png)
 
   
 
@@ -110,7 +110,7 @@ Users can quickly access information from the company knowledge base (KB) and re
 
 ### Solution architecture:
 
-![](https://t9015511399.p.clickup-attachments.com/t9015511399/0b7f06ed-6cdc-4fed-b117-de7edf08d82e/image.png)
+![](https://devrain.blob.core.windows.net/cases/case_image_0b7f06ed.png)
 
   
 
