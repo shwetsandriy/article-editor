@@ -1,15 +1,29 @@
-import ArticleViewer from './components/ArticleViewer';
-import Sidebar from './components/Sidebar';
-import { getArticlesTree } from './utils/getArticlesTree';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './components/Sidebar.css';
-import { HashRouter as Router, Routes, Route, useParams, useNavigate, Navigate } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, useParams, Navigate, useNavigate } from 'react-router-dom';
+import Sidebar from './components/Sidebar';
+import ArticleViewer from './components/ArticleViewer';
+import { getArticlesFiles } from './utils/getArticlesTree';
+
+function findFirstFile(tree) {
+  if (tree.files?.[0]) return tree.files[0].path;
+  for (const key in tree) {
+    const res = findFirstFile(tree[key]);
+    if (res) return res;
+  }
+  return null;
+}
 
 function ViewerWrapper() {
   const { filePath = '' } = useParams();
-  return <ArticleViewer filePath={decodeURIComponent(filePath)} onNavigate={(path) => {
-    window.location.href = `/article-editor/${encodeURIComponent(path)}`;
-  }}  />;
+  return (
+    <ArticleViewer
+      filePath={decodeURIComponent(filePath)}
+      onNavigate={(path) => {
+        window.location.href = `/article-editor/${encodeURIComponent(path)}`;
+      }}
+    />
+  );
 }
 
 function HomeLayout({ articleTree, articlePath, setArticlePath, sidebarOpen, setSidebarOpen, isExternalView = false }) {
@@ -19,14 +33,6 @@ function HomeLayout({ articleTree, articlePath, setArticlePath, sidebarOpen, set
   const effectivePath = isExternalView
     ? decodeURIComponent(filePath)
     : findFirstFile(articleTree);
-    function findFirstFile(tree) {
-      if (tree.files?.[0]) return tree.files[0].path;
-      for (const key in tree) {
-        const res = findFirstFile(tree[key]);
-        if (res) return res;
-      }
-      return null;
-    }
   return (
     <>
       <header className="site-header">
@@ -98,25 +104,66 @@ function HomeLayout({ articleTree, articlePath, setArticlePath, sidebarOpen, set
 
 function App() {
   const [sidebarOpen, setSidebarOpen] = useState(() => window.innerWidth > 768);
-
+  const [articleTree, setArticleTree] = useState({});
+  const [articlePath, setArticlePath] = useState(null);
   useEffect(() => {
     const handleResize = () => setSidebarOpen(window.innerWidth > 768);
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-  const articleTree = getArticlesTree();
-  const firstFile = findFirstFile(articleTree);
 
-  function findFirstFile(tree) {
-    if (tree.files?.[0]) return tree.files[0].path;
-    for (const key in tree) {
-      const res = findFirstFile(tree[key]);
-      if (res) return res;
+  useEffect(() => {
+    async function buildTree() {
+      const files = getArticlesFiles();
+      const tree = {};
+      const visibleTree = {};
+      const allFiles = {};
+  
+      for (const fullPath in files) {
+        const relativePath = fullPath.replace('../articles/', '');
+        const parts = relativePath.split('/');
+        const fileName = parts.pop().replace('.md', '');
+        const isHidden = fileName.startsWith('_');
+  
+        const fileContent = await files[fullPath]();
+        const firstLine = fileContent.trim().split('\n')[0];
+        const displayName = firstLine.replace(/^#\s*/, '').trim() || fileName;
+  
+        const fileMeta = {
+          name: fileName,
+          path: relativePath,
+          displayName,
+          hidden: isHidden,
+        };
+  
+        let currentAll = tree;
+        for (const folder of parts) {
+          if (!currentAll[folder]) currentAll[folder] = {};
+          currentAll = currentAll[folder];
+        }
+        if (!currentAll.files) currentAll.files = [];
+        currentAll.files.push(fileMeta);
+  
+        if (!isHidden) {
+          let currentVisible = visibleTree;
+          for (const folder of parts) {
+            if (!currentVisible[folder]) currentVisible[folder] = {};
+            currentVisible = currentVisible[folder];
+          }
+          if (!currentVisible.files) currentVisible.files = [];
+          currentVisible.files.push(fileMeta);
+        }
+      }
+  
+      setArticleTree(visibleTree);
+      const firstFile = findFirstFile(visibleTree);
+      if (firstFile) setArticlePath(firstFile);
     }
-    return null;
-  }
+  
+    buildTree();
+  }, []);
 
-  const [articlePath, setArticlePath] = useState(findFirstFile(articleTree));
+  // const [articlePath, setArticlePath] = useState(findFirstFile(articleTree));
 
   useEffect(() => {
     const handleResize = () => setSidebarOpen(window.innerWidth > 768);
@@ -152,7 +199,7 @@ function App() {
             />
           }
         />
-        <Route path="*" element={<Navigate to={`/${encodeURIComponent(firstFile)}`} replace />} />
+        <Route path="*" element={<Navigate to={`/${encodeURIComponent(articlePath)}`} replace />} />
     </Routes>
     </Router>
   );
