@@ -10,7 +10,7 @@ A digital workplace platform for employees that represents a single place for al
 
   
 
-![](https://t9015511399.p.clickup-attachments.com/t9015511399/70cd6d65-4905-4b70-b6e6-797bab6f9006/image.png)
+![](https://devrain.blob.core.windows.net/cases/digital_workplace_ui_70cd6d65.png)
 
 **Core features:**
 
@@ -51,7 +51,7 @@ A digital workplace platform for employees that represents a single place for al
 
 ### Architecture
 
-![](https://t9015511399.p.clickup-attachments.com/t9015511399/bf8858c7-fdeb-41df-8098-656077bf2e36/image.png)
+![](https://devrain.blob.core.windows.net/cases/digital_workplace_architecture_bf8858c7.png)
 
   
 

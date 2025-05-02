@@ -16,7 +16,7 @@ Our client (under a non-disclosure agreement) recognized these challenges and ap
 
 The Virtual Companion platform offers users an immersive experience where they can create personalized virtual companions tailored to their preferences. Users can create either an AI boyfriend or an AI girlfriend, with options available in realistic and anime styles. This flexibility ensures that each interaction feels unique and personal.
 
-![](https://t9015511399.p.clickup-attachments.com/t9015511399/49dab0c0-d928-4b9c-aeab-74f19cb0d882/image.png)
+![](https://devrain.blob.core.windows.net/cases/case_image_49dab0c0.png)
 
 The Virtual Companion platform leverages advanced natural language processing algorithms and LLMs to facilitate realistic conversations, making users feel understood and valued. LLMs, such as GPT-4 and its successors, use deep learning techniques to understand and generate human-like text. This allows Virtual Companion platforms to offer highly personalized conversations, improving user satisfaction and engagement. The ability to customize virtual companions extensively enhances the overall user experience, providing emotional support and companionship.
 

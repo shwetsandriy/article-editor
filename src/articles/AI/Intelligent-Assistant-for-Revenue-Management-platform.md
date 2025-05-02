@@ -11,7 +11,7 @@ Users need to get proactive notifications and guidance on acting on the insights
 
 ### Solution
 
-![](https://t9015511399.p.clickup-attachments.com/t9015511399/3069b046-4856-4334-a154-f6b97554bfd4/image.png)
+![](https://devrain.blob.core.windows.net/cases/revenue_assistant_ui_3069b046.png)
 
 * Intelligent Assistant helps users daily and provides real-time proactive notifications about insights based on sales data.
 
@@ -118,5 +118,5 @@ Users need to get proactive notifications and guidance on acting on the insights
 
 ### Solution architecture:
 
-![](https://t9015511399.p.clickup-attachments.com/t9015511399/1305d6d9-193c-406f-aa93-6879a4ff032c/image.png)
+![](https://devrain.blob.core.windows.net/cases/revenue_assistant_architecture_1305d6d9.png)
 

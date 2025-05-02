@@ -12,10 +12,6 @@ A multilingual search with enhanced machine learning capabilities allows for dec
 
   
 
-![](https://t9015511399.p.clickup-attachments.com/t9015511399/cc96b7ef-46c4-43b3-94ba-d87068694847/image.png)
-
-  
-
 #### **Features**
 
 **Full-text, attribute-based, and category-based multilingual search.** Our solution offers a robust multilingual search system that supports full-text, attribute-based, and category-based searches. This capability allows users to perform comprehensive searches across multiple languages, ensuring that they can find relevant documents quickly and efficiently, regardless of the language in which they are written.

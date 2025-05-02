@@ -20,7 +20,7 @@ DevRain implemented an AI-based system enhanced with agentic Retrieval Augmented
   
 
 
-![](https://t9015511399.p.clickup-attachments.com/t9015511399/eba452fc-5aa7-48f6-970c-5cdcd126a480/image.png)
+![](https://devrain.blob.core.windows.net/cases/case_image_eba452fc.png)
 
   
 
