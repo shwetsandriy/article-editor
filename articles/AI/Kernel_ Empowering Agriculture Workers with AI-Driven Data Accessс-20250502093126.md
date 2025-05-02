@@ -1,4 +1,4 @@
-# Kernel: Empowering Agriculture Workers with AI-Driven Data Accessс
+# Kernel: Empowering Agriculture Workers with AI-Driven Data Access
 
 **Company Background**
 

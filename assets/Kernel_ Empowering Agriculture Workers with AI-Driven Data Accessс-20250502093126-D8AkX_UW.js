@@ -1,4 +1,4 @@
-const e=`# Kernel: Empowering Agriculture Workers with AI-Driven Data Accessс
+const e=`# Kernel: Empowering Agriculture Workers with AI-Driven Data Access
 
 **Company Background**
 
