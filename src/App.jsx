@@ -91,7 +91,7 @@ function HomeLayout({ articleTree, articlePath, setArticlePath, sidebarOpen, set
             if (window.innerWidth <= 768) setSidebarOpen(false);
           }}
           setSidebarOpen={setSidebarOpen}
-          selectedPath={decodeURIComponent(filePath)}
+          selectedPath={articlePath}
         />
         <div className="page-wrapper">
           <ArticleViewer filePath={effectivePath} onNavigate={(path) => {
