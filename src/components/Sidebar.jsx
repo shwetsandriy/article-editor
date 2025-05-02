@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Sidebar.css';
 
-export default function Sidebar({ tree, onSelect, setSidebarOpen }) {
+export default function Sidebar({ tree, onSelect, setSidebarOpen, selectedPath }) {
   return (
     <div className="sidebar-wrapper">
       <button 
@@ -11,7 +11,7 @@ export default function Sidebar({ tree, onSelect, setSidebarOpen }) {
         ✕
       </button>
       <div className="sidebar">
-        {renderTree(tree, onSelect)}
+        {renderTree(tree, onSelect, selectedPath)}
       </div>
       {/* <button
         className="sidebar-toggle-inline"
@@ -39,13 +39,13 @@ const FolderGroup = ({ label, children }) => {
   );
 };
 
-function renderTree(node, onSelect) {
+function renderTree(node, onSelect, selectedPath) {
   return Object.entries(node).map(([key, value]) => {
     if (key === 'files') {
       return value.map((file, index) => (
         <button
           key={`${file.name}-${index}`}
-          className="sidebar-item"
+          className={`sidebar-item${file.path === selectedPath ? ' selected' : ''}`}
           onClick={() => onSelect(file.path)}
         >
           {file.displayName || file.name}
@@ -56,7 +56,7 @@ function renderTree(node, onSelect) {
     return (
       
       <FolderGroup key={key} label={key}>
-        {renderTree(value, onSelect)}
+        {renderTree(value, onSelect, selectedPath)}
       </FolderGroup>
     );
   });

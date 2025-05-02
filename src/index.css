@@ -272,4 +272,8 @@ button:focus-visible {
   .header-content{
     padding: 0px 1rem;
   }
+
+  .sidebar-item.selected {
+    font-weight: bold;
+  }
 }
